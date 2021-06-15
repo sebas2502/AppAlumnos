@@ -1,0 +1,60 @@
+.mytable thead{
+   background-color: #000;
+   color:#fff;
+   text-align: center;
+}
+
+.mytable{
+   text-align: center;
+   margin-top:0;
+   
+}
+
+
+.mytable tbody tr{
+   background-color: #fff;;
+}
+
+.mytable tfoot{
+   background-color: #000;
+   color:#fff;
+}
+
+body{
+   font-family:sans-serif;
+   background-color: rgb(219, 223, 230);
+   padding: 20px;     
+}
+
+.mybutton{
+   margin-left: 0;
+   margin-bottom: 20px;
+
+}
+
+.modal-header{
+   background-color: #000;
+}
+
+.modal-header h5{
+   color: #fff;
+}
+
+
+.close{
+   color:#fff;
+}
+
+.close:hover{
+   color:#fff;
+}
+
+.form-edit p{
+   background-color: #000;
+   color:red;
+}
+
+form p{
+   color: red;
+}
+

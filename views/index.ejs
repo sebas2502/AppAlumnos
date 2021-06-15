@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="sweetalert2.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="css/styles.css" type="text/css">
+
+  <title>App Alumnos</title>
+</head>
+
+<body>
+
+
+  <div class="container col-12">
+    <button type="button" class="mt-5 mybutton btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+      data-whatever="@mdo">Agregar Alumno</button>
+    <table id="example" class="table mytable table-hover table-bordered" style="width:100%">
+
+      <thead>
+        <tr>
+          <th>DNI</th>
+          <th>Apellido</th>
+          <th>Nombre</th>
+          <th>Curso</th>
+          <th>Celular</th>
+          <th>Descripcion</th>
+          <th>Asistencias</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <% data.forEach(alumno=>{ %>
+          <tr>
+            <td>
+              <%= alumno.dni %>
+            </td>
+            <td>
+              <%= alumno.apellido %>
+            </td>
+            <td>
+              <%= alumno.nombre %>
+            </td>
+            <td>
+              <%= alumno.curso %>
+            </td>
+            <td>
+              <%= alumno.celular %>
+            </td>
+            <td>
+              <%= alumno.descripcion %>
+            </td>
+            <td>
+              <%= alumno.asistencias %>
+            </td>
+            <td><a href='/editarAlumno/<%= alumno.dni %>' class="btn btn-primary mr-1 btn-sm">Editar</a><a onclick="confirmarEliminacion(<%= alumno.dni %>)"
+                href="#" class="btn btn-danger mr-1 btn-sm">Eliminar</a><a
+                href="sumarAsistencia/<%= alumno.dni %>" class="btn btn-success btn-sm">+Asist</a></td>
+
+          </tr>
+          <% }) %>
+
+
+
+
+
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>DNI</th>
+          <th>Apellido</th>
+          <th>Nombre</th>
+          <th>Curso</th>
+          <th>Celular</th>
+          <th>Descripion</th>
+          <th>Asistencias</th>
+          <th>Acciones</th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+
+  <!--Modal para Registrar alumno-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Registracion de alumno</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/insertarAlumno" method="post">
+            <div class="form-group">
+              <label for="dni" class="col-form-label">DNI</label>
+              <input type="text" class="form-control" id="dni" name='dni'>
+            </div>
+            <div class="form-group">
+              <label for="apellido" class="col-form-label">Apellido</label>
+              <input type="text" class="form-control" id="apellido" name="apellido">
+            </div>
+            <div class="form-group">
+              <label for="nombre" class="col-form-label">Nombre</label>
+              <input type="text" class="form-control" id="nombre" name="nombre">
+            </div>
+            <div class="form-group">
+              <label for="curso" class="col-form-label">Curso</label>
+              <input type="text" class="form-control" id="curso" name="curso">
+            </div>
+            <div class="form-group">
+              <label for="celular" class="col-form-label">Celular</label>
+              <input type="text" class="form-control" id="celular" name="celular">
+            </div>
+            <div class="form-group">
+              <label for="descripcion" class="col-form-label">Descripcion</label>
+              <textarea class="form-control" id="descripcion" name="descripcion"></textarea>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-------------------------------------------------------------------------------------------------------->
+
+
+  <!------------------------------------------------------------------------------------------------------->
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('#example').DataTable({
+        "language": {
+          "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+        }
+      });
+    });
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+    function confirmarEliminacion(dni) {
+    
+      Swal.fire({
+        title: '¿Seguro que desea eliminar el registro seleccionado?',
+        icon: 'warning',
+        showCancelButton:'true',
+        confirmButtonColor:'#3085d6',
+        cancelButtonColor:'#d33',
+        confirmButtonText:'Confirmar' 
+
+}).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) {
+      window.location = '/eliminarAlumno/'+dni;
+  } 
+})
+
+      
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    
+    <title>App Alumnos</title>
+</head>
+
+<body style="background-color: rgb(219, 223, 230);">
+  
+   
+  <div class="container col-6 mt-3 mb-3">
+   
+<div class="card">
+        <form action="/guardarCambioAlumno/<%=dataE[0].dni%>" method="post" class="form-edit">
+            <p style="border-radius:3px; color:#fff; padding: 10px; font-family: sans-serif; background-color: #000; font-weight: 700;" class="text-edit text-left">Editar alumno</p>
+          <div class="form-group p-2">
+            <label for="dniE" class="col-form-label">DNI</label>
+            <input type="text" class="form-control" id="dniE" name="dniE" value="<%=dataE[0].dni%>">
+          </div>
+          <div class="form-group p-2">
+            <label for="apellidoE" class="col-form-label">Apellido</label>
+            <input type="text" class="form-control" id="apellidoE" name="apellidoE" value="<%=dataE[0].apellido%>">
+          </div>
+          <div class="form-group p-2">
+            <label for="nombreE" class="col-form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombreE" name="nombreE" value="<%=dataE[0].nombre%>">
+          </div>
+          <div class="form-group p-2">
+            <label for="cursoE" class="col-form-label">Curso</label>
+            <input type="text" class="form-control" id="cursoE" name="cursoE" value="<%=dataE[0].curso%>">
+          </div>
+          <div class="form-group p-2">
+            <label for="celularE" class="col-form-label">Celular</label>
+            <input type="text" class="form-control" id="celularE" name="celularE" value="<%=dataE[0].celular%>">
+          </div>
+          <div class="form-group p-2">
+            <label for="descripcionE" class="col-form-label">Descripcion</label>
+            <textarea class="form-control" id="descripcionE" name="descripcionE"><%=dataE[0].descripcion%></textarea>
+          </div>
+          <div class="form-group p-2">
+            <label for="AsistenciasE" class="col-form-label">Asistencias</label>
+            <input type="text" class="form-control" id="asistenciasE" name="asistenciasE" value="<%=dataE[0].asistencias%>"></input>
+          </div>
+          <div class="modal-footer">
+            <a href="/alumnos"  class="btn btn-secondary">Cerrar</a>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+        </form>
+    </div>
+</div>
+
+<!------------------------------------------------------------------------------------------------------->
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+       
+     
+        </script>
+
+  </body>
+
+</html>
